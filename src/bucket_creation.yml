@@ -1,0 +1,20 @@
+Resources:
+  Bucketcreation:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: "Private"
+      VersioningConfiguration: 
+        Status: Enabled
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: "aws:kms"
+      BucketName: aparnanewbucket
+      Tags:
+        - Key: Name
+          Value: appu       
+      PublicAccessBlockConfiguration:
+        BlockPublicPolicy: true
+        BlockPublicAcls: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
